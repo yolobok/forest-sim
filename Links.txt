@@ -1,0 +1,1 @@
+https://gitlab.com/kinglear-tutorials/sfml-setup/sfml-setup-terminal
