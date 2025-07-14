@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile to Object",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-c",
+                "${workspaceFolder}/src/main.cpp",
+                "-o",
+                "${workspaceFolder}/build/main.obj",
+                "-g"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Link to Executable",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/build/main.obj",
+                "-o",
+                "${workspaceFolder}/sfml-works/sfml-works.exe",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system",
+                "-lsfml-audio"
+            ],
+            "dependsOn": "Compile to Object",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Executable",
+            "type": "shell",
+            "command": "${workspaceFolder}/sfml-works/sfml-works.exe",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "Link to Executable",
+            "problemMatcher": []
+        }
+    ]
+}
